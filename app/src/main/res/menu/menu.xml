@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/et_qly_sach"
+                    android:title="Quản lý sách" />
+                <item
+                    android:id="@+id/et_theloai"
+                    android:title="Thể loại" />
+                <item
+                    android:id="@+id/et_doanhthu"
+                    android:title="Doanh thu" />
+                <item
+                    android:id="@+id/et_qly_phieumuon"
+                    android:title="Quản lí phiếu mượn" />
+
+
+
+
+        <item android:title="khac">
+            <menu>
+                <item
+                    android:id="@+id/et_dandgxuat"
+                    android:title="Đăng xuất" />
+            </menu>
+        </item>
+    </group>
+</menu>

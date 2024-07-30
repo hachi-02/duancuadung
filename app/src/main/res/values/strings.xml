@@ -1,0 +1,9 @@
+<resources>
+    <string name="duanmau">Chọn thể loại</string>
+    <string-array name="theloai_array">
+        <item>Hài hước</item>
+        <item>Manga</item>
+        <item>Khoa học</item>
+        <!-- Thêm các thể loại khác ở đây -->
+    </string-array>
+</resources>
