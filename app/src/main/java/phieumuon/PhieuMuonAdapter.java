@@ -5,6 +5,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -62,7 +63,7 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonViewholder> 
             @Override
             public void onClick(View v) {
                 PhieuMuon pm=dspm.get(position);
-
+                pmf.suaPhieuMuon(pm);
             }
         });
     }
@@ -72,3 +73,5 @@ public class PhieuMuonAdapter extends RecyclerView.Adapter<PhieuMuonViewholder> 
         return dspm.size();
     }
 }
+
+

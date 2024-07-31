@@ -58,10 +58,7 @@ public class myhelper extends SQLiteOpenHelper {
                 "('Khoa học')";
         db.execSQL(insertTheLoaiData);
 
-        String insertSanPhamData = "INSERT INTO sanpham (tentp, theloai_id, soluong, dongia) VALUES " +
-                "('Truyện gì đó', 1, 10, 10000), " +
-                "('Truyện gì đó 01', 1, 10, 10000)";
-        db.execSQL(insertSanPhamData);
+
 
     }
 
@@ -74,4 +71,6 @@ public class myhelper extends SQLiteOpenHelper {
         db.execSQL("drop table if exists phieumuon");
         onCreate(db);
     }
+
+
 }

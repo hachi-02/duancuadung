@@ -67,7 +67,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp">
             <Button
                 android:id="@+id/bt_ngaymuon"
                 android:layout_width="125dp"
@@ -87,7 +88,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginLeft="5dp">
             <Button
                 android:id="@+id/bt_ngaytra"
                 android:layout_width="125dp"

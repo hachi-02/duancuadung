@@ -23,7 +23,7 @@ public class PhieuMuonViewholder extends RecyclerView.ViewHolder{
         this.tv_ngaytra=itemView.findViewById(R.id.tv_ngaytra);
         this.tv_trangthai=itemView.findViewById(R.id.tv_trangthai);
 
-        this.bt_ct=itemView.findViewById(R.id.bt_chitiet);
+        this.bt_ct=itemView.findViewById(R.id.bt_ct);
         this.bt_xoa=itemView.findViewById(R.id.bt_xoa2);
 
 

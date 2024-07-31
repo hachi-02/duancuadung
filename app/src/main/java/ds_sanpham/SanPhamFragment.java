@@ -1,6 +1,7 @@
 package ds_sanpham;
 
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -63,6 +64,8 @@ public class SanPhamFragment extends Fragment {
         rcv.setLayoutManager(linear);
         rcv.setAdapter(adapter);
     }
+    // Gọi phương thức này sau khi xóa dữ liệu và trước khi thêm dữ liệu mới
+
 
 
 
@@ -130,7 +133,6 @@ public class SanPhamFragment extends Fragment {
                 Toast.makeText(getContext(), "Xoa thanh cong", Toast.LENGTH_SHORT).show();
             }
         });
-
         AlertDialog dialog=builder.create();
         dialog.show();
 
@@ -210,4 +212,5 @@ public class SanPhamFragment extends Fragment {
         }
         return -1;
     }
+
 }

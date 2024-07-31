@@ -16,6 +16,8 @@ public class SanPhamDAO {
     public void themSanPham(SanPham sp){
         SQLiteDatabase db=helper.getWritableDatabase();
         ContentValues value=new ContentValues();
+        int nextId = getNextAvailableId();
+        value.put("masp", nextId);
         value.put("tentp",sp.tentp);
         value.put("theloai_id",sp.theloai);
         value.put("soluong",sp.soluong);
@@ -23,6 +25,8 @@ public class SanPhamDAO {
 
         db.insert("sanpham",null,value);
     }
+
+
 
 
     public ArrayList<SanPham> xemSP(){
@@ -63,4 +67,16 @@ public class SanPhamDAO {
         value.put("dongia",sp.dongia);
         db.update("sanpham",value,"masp=?",new String[]{sp.masp+""});
     }
+    private int getNextAvailableId() {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT MAX(masp) FROM sanpham", null);
+        int nextId = 1; // Giá trị mặc định nếu bảng trống
+        if (cursor.moveToFirst()) {
+            int maxId = cursor.getInt(0);
+            nextId = maxId + 1;
+        }
+        cursor.close();
+        return nextId;
+    }
+
 }

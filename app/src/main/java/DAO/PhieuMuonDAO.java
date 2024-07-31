@@ -17,6 +17,7 @@ public class PhieuMuonDAO {
     public myhelper helper;
     public PhieuMuonDAO(Context c){helper=new myhelper(c);}
     public void themPhieuMuon(PhieuMuon pm){
+
         SQLiteDatabase db=helper.getWritableDatabase();
         ContentValues value=new ContentValues();
         value.put("masp",pm.masp);
@@ -68,15 +69,16 @@ public class PhieuMuonDAO {
     public void suaPhieuMuon(PhieuMuon pm){
         SQLiteDatabase db=helper.getReadableDatabase();
         ContentValues value=new ContentValues();
-        value.put("id_phieumuon",pm.mapm);
-        value.put("masp",pm.masp);
-        value.put("tentp",pm.tentp);
-        value.put("tennguoimuon",pm.tenngm);
-        value.put("sdt",pm.sdt);
-        value.put("ngaymuon", String.valueOf(pm.ngaymuon));
-        value.put("ngaytra", String.valueOf(pm.ngaytra));
-        value.put("trangthai",pm.trangthai);
-        db.update("phieumuon",value,"ìd_phieumuon=?",new String[]{pm.mapm+""});
+        value.put("masp", pm.masp);
+        value.put("tentp", pm.tentp);
+        value.put("tennguoimuon", pm.tenngm);
+        value.put("sdt", pm.sdt);
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        value.put("ngaymuon", pm.ngaymuon != null ? dateFormat.format(pm.ngaymuon) : null);
+        value.put("ngaytra", pm.ngaytra != null ? dateFormat.format(pm.ngaytra) : null);
+        value.put("trangthai", pm.trangthai != null && pm.trangthai);
+
+        db.update("phieumuon", value, "id_phieumuon = ?", new String[]{String.valueOf(pm.mapm)});
     }
 
     public String getTenSanPham(int id) {

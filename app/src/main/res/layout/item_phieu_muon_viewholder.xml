@@ -207,7 +207,7 @@
             android:orientation="vertical">
 
             <LinearLayout
-                android:id="@+id/bt_chitiet"
+                android:id="@+id/bt_ct"
                 android:layout_width="77dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="3dp"
