@@ -15,7 +15,9 @@ import Model.PhieuMuon;
 
 public class PhieuMuonDAO {
     public myhelper helper;
-    public PhieuMuonDAO(Context c){helper=new myhelper(c);}
+    SQLiteDatabase db;
+    public PhieuMuonDAO(Context c){helper=new myhelper(c);
+        db = helper.getWritableDatabase();}
     public void themPhieuMuon(PhieuMuon pm){
 
         SQLiteDatabase db=helper.getWritableDatabase();
@@ -110,4 +112,10 @@ public class PhieuMuonDAO {
         db.close();
         return kq;
     }
+    public void xoaPhieuMuonBySanPham(int masp) {
+        SQLiteDatabase db = helper.getWritableDatabase();
+        String query = "DELETE FROM phieumuon WHERE masp = ?";
+        db.execSQL(query, new String[]{String.valueOf(masp)});
+    }
+
 }

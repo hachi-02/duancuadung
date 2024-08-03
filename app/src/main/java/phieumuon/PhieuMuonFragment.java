@@ -268,6 +268,28 @@ public class PhieuMuonFragment extends Fragment {
                 showDatePickerDialog(tv_ngaytra);
             }
         });
+        et_masp.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().isEmpty()) {
+                    try {
+                        int masp = Integer.parseInt(s.toString());
+                        String tentp = pmd.getTenSanPham(masp);
+                        et_tentp.setText(tentp);
+                    } catch (NumberFormatException e) {
+                        et_tentp.setText("");
+                    }
+                } else {
+                    et_tentp.setText("");
+                }
+            }
+        });
 
 
         builder.setPositiveButton("Lưu", new DialogInterface.OnClickListener() {

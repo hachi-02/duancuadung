@@ -17,7 +17,7 @@ import Model.TheLoai;
 public class myhelper extends SQLiteOpenHelper {
 
     public myhelper(@Nullable Context context){
-        super(context,"Quan_Ly_Sach", null, 10);
+        super(context,"Quan_Ly_Sach", null, 1);
     }
 
     @Override
@@ -27,6 +27,13 @@ public class myhelper extends SQLiteOpenHelper {
                 "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "ten_theloai TEXT)";
         db.execSQL(TheLoai);
+        String cactheloai = "INSERT INTO theloai (ten_theloai) VALUES ('Kinh dị')";
+        String cactheloai1 = "INSERT INTO theloai (ten_theloai) VALUES ('Hài hước')";
+        String cactheloai2 = "INSERT INTO theloai (ten_theloai) VALUES ('Lãng mạn')";
+        db.execSQL(cactheloai);
+        db.execSQL(cactheloai1);
+        db.execSQL(cactheloai2);
+
 
         // Người dùng
         String sql1= "CREATE TABLE user (" +
@@ -57,12 +64,6 @@ public class myhelper extends SQLiteOpenHelper {
                 "FOREIGN KEY(masp) REFERENCES sanpham(masp))";
         db.execSQL(phieuMuon);
 
-        // Chèn dữ liệu thể loại
-        String insertTheLoaiData = "INSERT INTO theloai (ten_theloai) VALUES " +
-                "('Hài hước'), " +
-                "('Manga'), " +
-                "('Khoa học')";
-        db.execSQL(insertTheLoaiData);
     }
 
 
@@ -164,5 +165,6 @@ public class myhelper extends SQLiteOpenHelper {
         int result = db.delete("theloai", "ten_theloai = ?", new String[]{tenTheLoai});
         return result > 0;
     }
+
 
 }

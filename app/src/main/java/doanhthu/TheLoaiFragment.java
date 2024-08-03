@@ -18,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.duancuadung.R;
 
+import DAO.TheLoaiDAO;
 import Database.myhelper;
 
 import java.util.ArrayList;
@@ -117,8 +118,8 @@ public class TheLoaiFragment extends Fragment {
                 .show();
     }
 
-    private void xoaTheLoai(String categoryName) {
-        boolean result = helper.xoaTheLoai(categoryName);
+    private void xoaTheLoai(String tenTheLoai) {
+        boolean result = helper.xoaTheLoai(tenTheLoai);
         if (result) {
             Toast.makeText(getContext(), "Xóa thể loại thành công", Toast.LENGTH_SHORT).show();
             loadTL();  // Cập nhật danh sách thể loại

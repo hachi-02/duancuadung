@@ -23,6 +23,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
+import DAO.PhieuMuonDAO;
 import DAO.SanPhamDAO;
 import Database.myhelper;
 import Model.TheLoai;
@@ -114,6 +115,7 @@ public class SanPhamFragment extends Fragment {
 
 
     public void xoaSanPham(int masp){
+
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle("thong bao");
         builder.setMessage("Ban co muon xoa");
@@ -128,6 +130,8 @@ public class SanPhamFragment extends Fragment {
         builder.setPositiveButton("yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                PhieuMuonDAO pmDAO = new PhieuMuonDAO(getContext());
+                pmDAO.xoaPhieuMuonBySanPham(masp);
                 spd.xoaSanPham(masp);
                 dulieu();
                 Toast.makeText(getContext(), "Xoa thanh cong", Toast.LENGTH_SHORT).show();
