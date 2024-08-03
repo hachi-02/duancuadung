@@ -95,4 +95,19 @@ public class PhieuMuonDAO {
         cursor.close();
         return tentp;
     }
+    public int tinhTongDoanhThu(String startDate, String endDate) {
+        SQLiteDatabase db = helper.getReadableDatabase();
+        String query = "SELECT SUM(s.dongia) FROM phieumuon pm " +
+                "JOIN sanpham s ON pm.masp = s.masp " +
+                "WHERE pm.trangthai = 1 " +
+                "AND pm.ngaytra BETWEEN ? AND ?";
+        Cursor cursor = db.rawQuery(query, new String[]{startDate, endDate});
+        int kq = 0;
+        if (cursor.moveToFirst()) {
+            kq = cursor.getInt(0);
+        }
+        cursor.close();
+        db.close();
+        return kq;
+    }
 }

@@ -5,30 +5,28 @@
     android:background="#FFFFFFFF"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="201dp">
+    android:layout_height="wrap_content"
+    android:padding="7dp">
+
     <LinearLayout
         android:id="@+id/ruuh33qez71j"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/backround_viewholder"
-        android:paddingVertical="16dp"
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginTop="18dp"
+        android:padding="16dp"
         android:orientation="horizontal">
 
         <LinearLayout
             android:id="@+id/ry85zadvsw6s"
-            android:layout_width="266dp"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TextView
                     android:id="@+id/tv1"
@@ -36,21 +34,20 @@
                     android:layout_height="wrap_content"
                     android:text="Mã SP: "
                     android:textColor="#000000"
-                    android:textSize="22sp"
-                    />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_masp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="helo"
-                    android:textSize="22sp"
-                    />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TextView
                     android:id="@+id/tv2"
@@ -58,19 +55,20 @@
                     android:layout_height="wrap_content"
                     android:text="Tên TP: "
                     android:textColor="#000000"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_tentp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="helo"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TextView
                     android:id="@+id/tv3"
@@ -78,19 +76,20 @@
                     android:layout_height="wrap_content"
                     android:text="Thể loại: "
                     android:textColor="#000000"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_theloai"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="helo"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TextView
                     android:id="@+id/tv4"
@@ -98,19 +97,20 @@
                     android:layout_height="wrap_content"
                     android:text="Số lượng: "
                     android:textColor="#000000"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_soluong"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="helo"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                >
 
                 <TextView
                     android:id="@+id/tv5"
@@ -118,33 +118,32 @@
                     android:layout_height="wrap_content"
                     android:text="Giá: "
                     android:textColor="#000000"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tv_dongia"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="helo"
-                    android:textSize="22sp" />
+                    android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>
 
-        <!-- Thêm TextView mới -->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:gravity="center_vertical">
 
             <LinearLayout
                 android:id="@+id/bt_sua"
-                android:layout_width="77dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="3dp"
+                android:layout_marginBottom="16dp"
                 android:background="@drawable/bt_sua"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:onClick="onButtonClick"
-                android:orientation="vertical"
-                android:paddingVertical="22dp">
+                android:padding="12dp">
 
                 <TextView
                     android:id="@+id/ree9pqdaifip"
@@ -157,14 +156,12 @@
 
             <LinearLayout
                 android:id="@+id/bt_xoa"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
                 android:background="@drawable/bt_xoa"
-                android:gravity="center_horizontal"
+                android:gravity="center"
                 android:onClick="onButtonClick"
-                android:orientation="vertical"
-                android:paddingVertical="22dp">
+                android:padding="12dp">
 
                 <TextView
                     android:id="@+id/r9hmdpgza9d"

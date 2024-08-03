@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import com.google.android.material.navigation.NavigationView;
 
 import dangnhap.dang_nhap;
+import doanhthu.DoanhThuFragment;
 import ds_sanpham.SanPhamFragment;
 import phieumuon.PhieuMuonFragment;
 
@@ -62,12 +63,17 @@ public class MainActivity extends AppCompatActivity {
                     f=new PhieuMuonFragment();
                     getSupportActionBar().setTitle("Quản lý phiếu mượn");
                 }
+
                 else{
                     f=new SanPhamFragment();
                 }
                 if(id==R.id.et_dandgxuat){
                     Intent i =new Intent(MainActivity.this, dang_nhap.class);
                     startActivity(i);
+                }
+                if(id==R.id.et_doanhthu){
+                    f=new DoanhThuFragment();
+                    getSupportActionBar().setTitle("Doanh thu");
                 }
 
                 FragmentManager fagment=getSupportFragmentManager();
