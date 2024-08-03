@@ -18,6 +18,7 @@ import com.google.android.material.navigation.NavigationView;
 
 import dangnhap.dang_nhap;
 import doanhthu.DoanhThuFragment;
+import doanhthu.TheLoaiFragment;
 import ds_sanpham.SanPhamFragment;
 import phieumuon.PhieuMuonFragment;
 
@@ -74,6 +75,9 @@ public class MainActivity extends AppCompatActivity {
                 if(id==R.id.et_doanhthu){
                     f=new DoanhThuFragment();
                     getSupportActionBar().setTitle("Doanh thu");
+                }
+                if(id==R.id.et_theloai){
+                    f=new TheLoaiFragment();
                 }
 
                 FragmentManager fagment=getSupportFragmentManager();

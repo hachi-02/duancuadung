@@ -1,7 +1,6 @@
 package ds_sanpham;
 
 import android.content.DialogInterface;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +21,11 @@ import com.example.duancuadung.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import DAO.SanPhamDAO;
+import Database.myhelper;
+import Model.TheLoai;
 import Model.SanPham;
 
 public class SanPhamFragment extends Fragment {
@@ -32,6 +34,7 @@ public class SanPhamFragment extends Fragment {
     ArrayList<SanPham> ds;
     FloatingActionButton fabutton;
     EditText et_ten,et_soluong,et_gia;
+    ArrayList<TheLoai> dstl;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -77,10 +80,7 @@ public class SanPhamFragment extends Fragment {
         LayoutInflater inf = getLayoutInflater();
         View v = inf.inflate(R.layout.them_sp, null);
         Spinner spinner = v.findViewById(R.id.theloai);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.theloai_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+        capNhatTheLoai(spinner);
         builder.setView(v);
         et_ten=v.findViewById(R.id.ten);
         et_soluong=v.findViewById(R.id.soluong);
@@ -152,10 +152,8 @@ public class SanPhamFragment extends Fragment {
         Spinner spinner = v.findViewById(R.id.theloai);
         et_soluong=v.findViewById(R.id.soluong);
         et_gia=v.findViewById(R.id.giaban);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
-                R.array.theloai_array, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
+
+        capNhatTheLoai(spinner);
 
         et_ten.setText(sp.tentp);
         et_soluong.setText(sp.soluong+"");
@@ -196,21 +194,31 @@ public class SanPhamFragment extends Fragment {
 
 
 
+    private int getTheLoaiIdByPosition(int position) {
+        // Giả sử bạn đã có danh sách thể loại với ID
+        return dstl.get(position).getId();
+    }
+
     private int getPositionByTheLoaiId(int theloaiId) {
-        for (int i = 0; i < THE_LOAI_IDS.length; i++) {
-            if (THE_LOAI_IDS[i] == theloaiId) {
+        for (int i = 0; i < dstl.size(); i++) {
+            if (dstl.get(i).getId() == theloaiId) {
                 return i;
             }
         }
         return 0;
     }
-    private static final int[] THE_LOAI_IDS = {1, 2, 3};
+    private void capNhatTheLoai(Spinner spinner) {
+        myhelper helper = new myhelper(getContext());
+        List<TheLoai> theloai = helper.getTheLoaiID();  // Cập nhật phương thức để lấy ID thể loại
 
-    private int getTheLoaiIdByPosition(int position) {
-        if (position >= 0 && position < THE_LOAI_IDS.length) {
-            return THE_LOAI_IDS[position];
-        }
-        return -1;
+        dstl = new ArrayList<>(theloai);  // Lưu trữ danh sách thể loại
+
+        ArrayAdapter<TheLoai> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_spinner_item,theloai);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
+
+
+
 
 }

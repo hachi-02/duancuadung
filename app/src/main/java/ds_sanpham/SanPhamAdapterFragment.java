@@ -13,6 +13,8 @@ import com.example.duancuadung.R;
 
 import java.util.ArrayList;
 
+import Database.myhelper;
+import Model.TheLoai;
 import Model.SanPham;
 
 
@@ -20,15 +22,18 @@ public class SanPhamAdapterFragment extends RecyclerView.Adapter<SanPhamViewhold
     ArrayList<SanPham> ds ;
     Context context;
     SanPhamFragment spf;
-    private String[] theLoaiArray =new String[]{"0","Hài hước","Manga","Khoa học"};
+    ArrayList<TheLoai> dstl;
 
     public SanPhamAdapterFragment(Context context, ArrayList<SanPham> ds,SanPhamFragment spf) {
         this.context = context;
         this.ds = ds;
         this.spf=spf;
+        myhelper helper = new myhelper(context);
+        this.dstl = new ArrayList<>(helper.getTheLoaiID());
     }
     public SanPhamViewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(context).inflate(R.layout.item_san_pham_viewholder, parent, false);
+
         return new SanPhamViewholder(v);
     }
 
@@ -38,9 +43,8 @@ public class SanPhamAdapterFragment extends RecyclerView.Adapter<SanPhamViewhold
         //gắn vị  trí index
         holder.tv_id.setText(sp.masp+"");
         holder.tv_tentp.setText(sp.tentp+"");
-        if (sp.theloai >= 0 && sp.theloai < theLoaiArray.length) {
-            holder.tv_theloai.setText(theLoaiArray[sp.theloai]);
-        }
+        String categoryName = tenTLQuaID(sp.theloai);
+        holder.tv_theloai.setText(categoryName);
         holder.tv_soluong.setText(sp.soluong+"");
         holder.tv_dongia.setText(sp.dongia+"");
 
@@ -66,5 +70,14 @@ public class SanPhamAdapterFragment extends RecyclerView.Adapter<SanPhamViewhold
     @Override
     public int getItemCount() {
         return ds.size();
+    }
+    //lấy tên của  thể loại từ id
+    private String tenTLQuaID(int theloaiId) {
+        for (TheLoai theloai : dstl) {
+            if (theloai.getId() == theloaiId) {
+                return theloai.getName();
+            }
+        }
+        return "Unknown";
     }
 }
